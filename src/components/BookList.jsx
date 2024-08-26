@@ -9,15 +9,15 @@ class BookList extends Component {
     selectedAsin: null, // Stato per tenere traccia dell'ASIN del libro selezionato
   };
 
-  handleBookSelect = (asin) => {
-    this.setState({ selectedAsin: asin }); // Aggiorna l'ASIN selezionato
+  handleBookSelect = (newAsin) => {
+    this.setState({ selectedAsin: newAsin }); // Aggiorna l'ASIN selezionato
   };
 
   render() {
     return (
       <Container fluid>
         <Row className="my-5">
-          <Col xs={12} md={6}>
+          <Col>
             <Form.Control
               type="text"
               placeholder="Cerca un libro"
@@ -37,7 +37,8 @@ class BookList extends Component {
                   <Col xs={12} md={6} key={scifiBook.asin}>
                     <SingleBook 
                       libro={scifiBook} 
-                      onSelect={this.handleBookSelect} // Passa il gestore di selezione
+                      handleBookSelect={this.handleBookSelect}
+                      selectedAsin={this.state.selectedAsin}
                     />
                   </Col>
                 ))}

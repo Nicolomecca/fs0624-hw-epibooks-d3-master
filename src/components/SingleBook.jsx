@@ -13,14 +13,13 @@ class SingleBook extends Component {
       <div>
         <Card
           // className={this.state.selected ? 'diana border border-2 border-danger' : 'diana'}
-          style={
-            this.props.selected
-              ? {
-                  border: this.props.selected
+          style={{
+          
+                  border: this.props.libro.asin === this.props.s
                     ? '2px solid red'
                     : '1px solid gray',
                 }
-              : {}
+            
           }
         >
           <Card.Img
